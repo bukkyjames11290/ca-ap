@@ -14,7 +14,7 @@ export default function Header({ handleLogout, user }: any) {
 
   return (
     <div className="w-full min-h-[70px] flex items-center justify-between bg-transparent">
-      <div className="flex text-xl text-[#414141] font-semibold items-center space-x-4">Banking</div>
+      <div className="flex text-xl text-[#414141] font-semibold items-center space-x-4">Money</div>
       <div className="relative">
         <button onClick={toggleNav} className="relative">
           {user.profileImg ? (

@@ -81,8 +81,8 @@ export default function Login() {
     <div className="min-h-screen bg-black flex items-center justify-center p-4">
       <div className="w-full max-w-sm space-y-8">
         <div className="text-center">
-          <div className="w-16 h-16 bg-[#00D632] rounded-2xl mx-auto mb-6 flex items-center justify-center">
-            <Image src="https://i.imgur.com/M4CnJZt.png" width={45} height={27} className="w-[45px] h-[27px]" alt="logo" />
+          <div className="mx-auto mb-6 flex items-center justify-center">
+            <Image src="https://i.imgur.com/Qqcf1jm.png" width={45} height={27} className="w-[80px]" alt="logo" />
           </div>
           <h1 className="text-white text-2xl font-semibold">{step === 'email' ? 'Enter your email' : 'Enter your password'}</h1>
           {step === 'email' && <p className="text-gray-400 text-sm mt-2">Enter your email to continue</p>}
@@ -104,7 +104,7 @@ export default function Login() {
                     if (error) setError('');
                   }}
                   placeholder="Enter your email"
-                  className={`w-full bg-gray-900 border-gray-700 text-white placeholder:text-gray-500 focus:border-[#00D632] focus:ring-[#00D632] h-12 px-3 rounded-lg border outline-none transition-colors ${
+                  className={`w-full bg-gray-900 border-gray-700 text-white placeholder:text-gray-500 focus:border-[#00D632] focus:ring-[#00D632] py-4 px-3 rounded-lg border outline-none transition-colors ${
                     error ? 'border-red-400 focus:border-red-400 focus:ring-red-400' : ''
                   }`}
                   autoFocus
@@ -140,7 +140,7 @@ export default function Login() {
                       if (error) setError('');
                     }}
                     placeholder="Enter your password"
-                    className={`w-full bg-gray-900 border-gray-700 text-white placeholder:text-gray-500 focus:border-[#00D632] focus:ring-[#00D632] h-12 px-3 pr-10 rounded-lg border outline-none transition-colors ${
+                    className={`w-full bg-gray-900 border-gray-700 text-white placeholder:text-gray-500 focus:border-[#00D632] focus:ring-[#00D632] py-4 px-3 pr-10 rounded-lg border outline-none transition-colors ${
                       error ? 'border-red-400 focus:border-red-400 focus:ring-red-400' : ''
                     }`}
                     autoFocus

@@ -8,9 +8,16 @@ import { DialogPanel } from '@headlessui/react';
 import { CashAppAccount } from '@/utils/types';
 import { getRandomColor } from '@/components/getRandomColor';
 import { mockUsers } from '@/components/mockData/UserMockData';
+import { useState } from 'react';
 
 // Amount Entry Dialog
-export function AmountEntryDialog({ user, payAmount, activeAction, setPayDialogOpen, handleNumberClick, handleDecimalClick, handleBackspace, handleAction, setActiveAction }: any) {
+export function AmountEntryDialog({ user, handleLogout, payAmount, activeAction, setPayDialogOpen, handleNumberClick, handleDecimalClick, handleBackspace, handleAction, setActiveAction }: any) {
+  const [open, setOpen] = useState(false);
+
+  const toggleNav = () => {
+    setOpen(!open);
+  };
+
   return (
     <DialogPanel className="bg-green-500 w-full h-full flex items-center justify-center">
       <div className="bg-green-500 text-white h-full w-full max-w-md mx-auto flex flex-col">
@@ -20,13 +27,23 @@ export function AmountEntryDialog({ user, payAmount, activeAction, setPayDialogO
               <X className="w-6 h-6" />
             </button>
           </div>
-          <div>
-            {user.profileImg ? (
-              <Image src={user.profileImg} width={40} height={40} className="w-[50px] h-[50px] rounded-full" alt="avatar" />
-            ) : (
-              <Link href="/dashboard/profile">
-                <CircleUser size={27} className="text-[#414141]" />
-              </Link>
+          <div className="relative">
+            <button onClick={toggleNav} className="relative">
+              {user.profileImg ? (
+                <Image src={user.profileImg} width={40} height={40} className="w-[50px] h-[50px] rounded-full" alt="avatar" onClick={toggleNav} />
+              ) : (
+                <CircleUser size={27} className="text-white" />
+              )}
+            </button>
+
+            {open && (
+              <div className="absolute mt-1 z-50 shadow bg-white border p-2 rounded-md right-0 flex flex-col justify-center leading-5">
+                <p className="text-[14px] text-black px-[15px] whitespace-nowrap font-medium">{user.fullName}</p>
+                <p className="text-[14px] text-gray-500 px-[15px] whitespace-nowrap font-medium">{user.cashtag}</p>
+                <p className="text-[14px] m-1 mt-4 px-[15px] text-center rounded-md py-[5px] bg-green-500 border whitespace-nowrap text-white" onClick={handleLogout}>
+                  Sign out
+                </p>
+              </div>
             )}
           </div>
         </div>
@@ -101,10 +118,7 @@ export function RecipientSelectionDialog({
   setNote,
   isLoading
 }: any) {
-   const filteredUsers = mockUsers.filter(user => 
-    user.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    user.cashtag.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredUsers = mockUsers.filter(user => user.name.toLowerCase().includes(searchQuery.toLowerCase()) || user.cashtag.toLowerCase().includes(searchQuery.toLowerCase()));
   return (
     <DialogPanel className="bg-white w-full h-full flex items-center justify-center">
       <div className="bg-white text-black h-full w-full max-w-md mx-auto flex flex-col">

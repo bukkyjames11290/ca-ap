@@ -6,7 +6,7 @@ import toast from 'react-hot-toast';
 import { mockAccounts } from '../mockData/MockData';
 import { AmountEntryDialog, ConfirmationDialog, RecipientSelectionDialog } from './DailogPanels/CashOutDailogs';
 
-export function CashOut({ user, payDialogOpen, setPayDialogOpen }: any) {
+export function CashOut({ user, handleLogout, payDialogOpen, setPayDialogOpen }: any) {
   const [payAmount, setPayAmount] = useState('0');
   const [activeAction, setActiveAction] = useState<'pay' | 'request'>('pay');
   const [showRecipientDialog, setShowRecipientDialog] = useState(false);
@@ -142,6 +142,7 @@ export function CashOut({ user, payDialogOpen, setPayDialogOpen }: any) {
               handleBackspace={handleBackspace}
               handleAction={handleAction}
               setActiveAction={setActiveAction}
+              handleLogout={handleLogout}
             />
           ) : showRecipientDialog ? (
             <RecipientSelectionDialog

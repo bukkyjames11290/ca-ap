@@ -73,7 +73,7 @@ export default function Dashboard() {
             </div>
             <div className="flex space-x-3 pt-5">
               <AddCash user={user} />
-              <CashOut user={user} payDialogOpen={payDialogOpen} setPayDialogOpen={setPayDialogOpen} />
+              <CashOut user={user} handleLogout={handleLogout} payDialogOpen={payDialogOpen} setPayDialogOpen={setPayDialogOpen} />
             </div>
           </div>
         </div>
