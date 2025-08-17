@@ -59,6 +59,10 @@ export default function Dashboard() {
         {/* Header */}
         <Header user={user} handleLogout={handleLogout} />
 
+        <div className="p-[16px] max-w-[300px] mx-auto text-center py-[15px] flex-col">
+          <span className="font-medium text-2xl">It's nice to see you, {user.fullName}</span>
+        </div>
+
         {/* Balance Card */}
         <div className="mt-6 mb-8">
           <div className="bg-white rounded-2xl p-6 py-10 border">

@@ -5,7 +5,7 @@ export interface CashAppAccount {
   cashtag: string;
   fullName: string;
   email: string;
-  phoneNumber: string;
+  phoneNumber?: string;
   password: string;
   profileImg?: string;
   balance_usd: number;

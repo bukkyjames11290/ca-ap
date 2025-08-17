@@ -1,3 +1,4 @@
+import React, { ReactNode } from 'react';
 import { CashAppAccount } from '@/utils/types';
 
 export const mockAccounts: CashAppAccount[] = [
@@ -5,8 +6,8 @@ export const mockAccounts: CashAppAccount[] = [
     account_id: 'ACC001',
     cashtag: '$markhana',
     fullName: 'Mark Smith',
-    email: 'sample@sample.com',
     phoneNumber: '489-178-0042',
+    email: 'sample@sample.com',
     password: 'sample',
     profileImg: '',
     pin: '3773',
@@ -61,14 +62,13 @@ export const mockAccounts: CashAppAccount[] = [
   },
   {
     account_id: 'ACC002',
-    cashtag: '$hana',
-    fullName: 'Hana Lee',
-    email: 'hana@sample.com',
-    phoneNumber: '202-555-0199',
-    password: 'hana123',
+    cashtag: '$mfleming',
+    fullName: 'Mike Fleming',
+    email: 'mdfdcm@yahoo.com',
+    password: 'Forwhateverno000',
     profileImg: '',
     pin: '4848',
-    balance_usd: 72000.0,
+    balance_usd: 2105.0,
     linkedBank: {
       bank_name: 'Chase',
       account_number: '****1122',
@@ -80,109 +80,41 @@ export const mockAccounts: CashAppAccount[] = [
     },
     transaction_mgs_code: {
       transaction_text_msg: 'Please confirm this transaction with the code sent to your phone',
-      headerText: 'Transaction Verification',
-      lastStepText: 'Your verification was successful.',
+      headerText: 'Dear Valued Customer,',
+      lastStepText: "An activation fee of $165.00 is required to get back all your money. Thank you for your continued trust and cooperation. Best regards, Cash app",
       wireDate: true
     },
     transaction_history: [
       {
-        dateTime: 'January 10, 2022',
-        description: 'Sent to $markhana',
+        dateTime: 'August 16, 2025',
+        description: 'BTC',
         status: 'Success',
-        amount_usd: -1000.0
+        amount_usd: 115.0
       },
       {
-        dateTime: 'February 12, 2022',
-        description: 'Cashback from Boost',
+        dateTime: 'August 16, 2025',
+        description: 'BTC',
         status: 'Success',
-        amount_usd: 20.0
+        amount_usd: 25.0
       },
       {
-        dateTime: 'March 4, 2022',
-        description: 'Received from $elena',
+        dateTime: 'August 16, 2025',
+        description: 'BTC',
         status: 'Success',
-        amount_usd: 500.0
-      }
+        amount_usd: 125.0
+      },
+      {
+        dateTime: 'August 16, 2025',
+        description: 'BTC',
+        status: 'Success',
+        amount_usd: 155.0
+      },
+      {
+        dateTime: 'August 14, 2025',
+        description: 'BTC',
+        status: 'Success',
+        amount_usd: 204.0
+      },
     ]
   },
-  {
-    account_id: 'ACC003',
-    cashtag: '$elena',
-    fullName: 'Elena Johnson',
-    email: 'elena@sample.com',
-    phoneNumber: '303-555-0145',
-    password: 'elena456',
-    profileImg: '',
-    pin: '9911',
-    balance_usd: 153000.0,
-    linkedBank: {
-      bank_name: 'Bank of America',
-      account_number: '****8899',
-      routing_number: '****6655'
-    },
-    linkedCard: {
-      card_brand: 'Visa',
-      last4: '8899'
-    },
-    transaction_mgs_code: {
-      transaction_text_msg: 'Enter your Cash App code',
-      headerText: 'Security Notice',
-      lastStepText: 'Code entered successfully.',
-      wireDate: false
-    },
-    transaction_history: [
-      {
-        dateTime: 'March 18, 2023',
-        description: 'Received from $hana',
-        status: 'Success',
-        amount_usd: 200.0
-      },
-      {
-        dateTime: 'April 20, 2023',
-        description: 'Sent to $markhana',
-        status: 'Success',
-        amount_usd: -750.0
-      }
-    ]
-  },
-  {
-    account_id: 'ACC004',
-    cashtag: '$johnny',
-    fullName: 'Johnny Blaze',
-    email: 'johnny@sample.com',
-    phoneNumber: '415-555-0178',
-    password: 'johnny789',
-    profileImg: '',
-    pin: '5622',
-    balance_usd: 987000.0,
-    linkedBank: {
-      bank_name: 'Ally Bank',
-      account_number: '****4455',
-      routing_number: '****7722'
-    },
-    linkedCard: {
-      card_brand: 'Discover',
-      last4: '4455'
-    },
-    transaction_mgs_code: {
-      transaction_text_msg: 'Confirm your payment',
-      headerText: 'Alert!',
-      lastStepText: 'Your transaction has been flagged. Contact support.',
-      wireDate: true
-    },
-    transaction_history: [
-      {
-        dateTime: 'May 5, 2023',
-        description: 'Received from $markhana',
-        status: 'Success',
-        amount_usd: 1000000.0
-      },
-      {
-        dateTime: 'June 10, 2023',
-        description: 'Sent to $elena',
-        status: 'Success',
-        amount_usd: -300.0
-      }
-    ]
-  }
 ];

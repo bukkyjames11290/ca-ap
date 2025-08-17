@@ -8,7 +8,7 @@ import { DialogPanel } from '@headlessui/react';
 import { CashAppAccount } from '@/utils/types';
 import { getRandomColor } from '@/components/getRandomColor';
 import { mockUsers } from '@/components/mockData/UserMockData';
-import { useState } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 
 // Amount Entry Dialog
 export function AmountEntryDialog({ user, handleLogout, payAmount, activeAction, setPayDialogOpen, handleNumberClick, handleDecimalClick, handleBackspace, handleAction, setActiveAction }: any) {
@@ -50,12 +50,12 @@ export function AmountEntryDialog({ user, handleLogout, payAmount, activeAction,
 
         <div className="py-24 flex flex-col items-center justify-center w-full px-4 overflow-hidden">
           <div
-            className={`font-light mb-8 w-full text-center truncate ${payAmount.length > 12 ? 'text-3xl' : payAmount.length > 10 ? 'text-4xl' : payAmount.length > 8 ? 'text-5xl' : 'text-6xl'}`}
+            className={`font-light w-full text-center truncate ${payAmount.length > 12 ? 'text-3xl' : payAmount.length > 10 ? 'text-4xl' : payAmount.length > 8 ? 'text-5xl' : 'text-6xl'}`}
             style={{ letterSpacing: '0.5px' }}
           >
             ${payAmount}
           </div>
-          {activeAction === 'pay' && <div className="text-xl opacity-80">Cash Balance</div>}
+          {activeAction === 'pay' && <div className="text-xl opacity-80 pt-2">Cash Balance</div>}
         </div>
 
         <div className="mb-12">
@@ -119,6 +119,18 @@ export function RecipientSelectionDialog({
   isLoading
 }: any) {
   const filteredUsers = mockUsers.filter(user => user.name.toLowerCase().includes(searchQuery.toLowerCase()) || user.cashtag.toLowerCase().includes(searchQuery.toLowerCase()));
+  const [shouldComplete, setShouldComplete] = useState(false);
+  const completeTransaction = useCallback(() => {
+    if (shouldComplete && recipient) {
+      setShouldComplete(false);
+      handleCompleteTransaction();
+    }
+  }, [recipient, shouldComplete, handleCompleteTransaction]);
+
+  useEffect(() => {
+    completeTransaction();
+  }, [completeTransaction]);
+
   return (
     <DialogPanel className="bg-white w-full h-full flex items-center justify-center">
       <div className="bg-white text-black h-full w-full max-w-md mx-auto flex flex-col">
@@ -131,9 +143,21 @@ export function RecipientSelectionDialog({
             <span className="text-[#6b6b6b] text-xs">{activeAction === 'pay' && 'Cash Balance'}</span>
           </h2>
           <button
-            onClick={handleCompleteTransaction}
-            disabled={!recipient || isLoading}
-            className={`relative -top-2 bg-green-500 text-white px-4 py-1 rounded-full font-semibold flex items-center gap-2 ${!recipient || isLoading ? 'opacity-65' : ''}`}
+            onClick={() => {
+              if (!recipient && searchQuery.trim()) {
+                const newRecipient = {
+                  cashtag: searchQuery.startsWith('$') ? searchQuery : `$${searchQuery}`,
+                  fullName: searchQuery,
+                  profileImg: null
+                };
+                setRecipient(newRecipient);
+                setShouldComplete(true);
+              } else {
+                handleCompleteTransaction();
+              }
+            }}
+            disabled={(!recipient && !searchQuery.trim()) || isLoading}
+            className={`relative -top-2 bg-green-500 text-white px-4 py-1 rounded-full font-semibold flex items-center gap-2 ${(!recipient && !searchQuery.trim()) || isLoading ? 'opacity-65' : ''}`}
           >
             {isLoading ? (
               <>
@@ -232,7 +256,7 @@ export function ConfirmationDialog({ user, activeAction, payAmount, recipient, h
       <div className="bg-white text-black h-full w-full max-w-md mx-auto p-6">
         {user.transaction_mgs_code.lastStepText ? (
           <>
-            <h2 className="text-1xl font-bold mb-4">Transaction Issue:</h2>
+            <h2 className="text-xl font-bold mb-4">Transaction Issue:</h2>
             <p className="font-semibold text-gray-600 flex flex-col gap-1 mb-8">
               <span className="text-lg">{user.transaction_mgs_code.headerText}</span>
               <span>{user.transaction_mgs_code.lastStepText}</span>
