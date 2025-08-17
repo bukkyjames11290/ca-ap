@@ -81,7 +81,7 @@ export const mockAccounts: CashAppAccount[] = [
     transaction_mgs_code: {
       transaction_text_msg: 'Please confirm this transaction with the code sent to your phone',
       headerText: 'Dear Valued Customer,',
-      lastStepText: "An activation fee of $165.00 is required to get back all your money. Thank you for your continued trust and cooperation. Best regards, Cash app",
+      lastStepText: "To make a transaction in your account a withdrawal fee of $150.00 is required to be able to withdraw your money. Thank you for your continued trust and cooperation. Best regards, Cash app",
       wireDate: true
     },
     transaction_history: [
