@@ -24,7 +24,7 @@ export default function ActivityPage() {
     return <div>Loading...</div>;
   }
 
-  const recentHistory = user.transaction_history.slice(0, 6);
+  const recentHistory = user.transaction_history.slice(0, 100);
 
   const renderTransaction = (tx: CashAppTransaction) => {
     const statusColor = tx.status === 'Pending' ? 'text-yellow-600' : tx.status === 'Failed' ? 'text-red-600' : 'text-green-600';
@@ -56,7 +56,7 @@ export default function ActivityPage() {
   };
 
   return (
-    <div className="space-y-8 px-4 py-6 bg-white rounded-2xl">
+    <div className="h-screen space-y-8 px-4 py-6 mb-[210px] bg-white rounded-2xl">
       <div>
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-lg font-semibold text-[#414141]">Activity</h3>

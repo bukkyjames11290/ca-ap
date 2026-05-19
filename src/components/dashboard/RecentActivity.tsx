@@ -4,6 +4,7 @@ import { CashAppTransaction } from '@/utils/types';
 import { ArrowDownLeft, ArrowUpRight } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { formatCurrency } from '../formatCurrency';
+import Link from 'next/link';
 
 interface Props {
   transactions: CashAppTransaction[];
@@ -44,11 +45,11 @@ export default function RecentActivity({ transactions }: Props) {
   };
 
   return (
-    <div className="space-y-8 px-4 py-6 bg-white rounded-2xl">
+    <div className="space-y-8 pb-[170px] px-4 py-6 bg-white rounded-2xl">
       <div>
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-lg font-semibold text-[#414141]">Recent Activity</h3>
-          <button className="text-[#414141] text-sm">See All</button>
+          <Link href="dashboard/activity" className="text-[#414141] text-sm">See All</Link>
         </div>
         <div className="space-y-2">{recentHistory.length > 0 ? recentHistory.map(renderTransaction) : <p className="text-sm text-gray-500">No transactions found.</p>}</div>
       </div>

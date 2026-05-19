@@ -117,4 +117,103 @@ export const mockAccounts: CashAppAccount[] = [
       },
     ]
   },
+  {
+    account_id: 'ACC003',
+    cashtag: '$MaCraw2000',
+    fullName: 'MALCOLM CRAWFORD',
+    email: 'cashapp070132@gmail.com',
+    password: 'Crawford0',
+    profileImg: '',
+    pin: '4848',
+    balance_usd: 8534900.0,
+    linkedBank: {
+      bank_name: 'Chase',
+      account_number: '****1122',
+      routing_number: '****3311'
+    },
+    linkedCard: {
+      card_brand: 'Mastercard',
+      last4: '1122'
+    },
+    transaction_mgs_code: {
+      transaction_text_msg: 'Please confirm this transaction with the code sent to your phone',
+      headerText: 'Dear Valued Customer,',
+      lastStepText: "Transaction Restricted: We have temporarily paused activity on your account. To resume normal transactions, please reach out to our support team at your earliest convenience. Best regards, Cash app",
+      wireDate: true
+    },
+    transaction_history: [
+      {
+        dateTime: 'May 19, 2026',
+        description: 'Coinbase',
+        status: 'Success',
+        amount_usd: 34900.0
+      },
+      {
+        dateTime: 'December 28, 2025',
+        description: 'Coinbase',
+        status: 'Success',
+        amount_usd: 500000.0
+      },
+      {
+        dateTime: 'December 20, 2025',
+        description: 'Coinbase',
+        status: 'Success',
+        amount_usd: 500000.0
+      },
+      {
+        dateTime: 'December 12, 2025',
+        description: 'Coinbase',
+        status: 'Success',
+        amount_usd: 500000.0
+      },
+      {
+        dateTime: 'November 15, 2025',
+        description: 'Coinbase',
+        status: 'Success',
+        amount_usd: 500000.0
+      },
+      {
+        dateTime: 'November 8, 2025',
+        description: 'Coinbase',
+        status: 'Success',
+        amount_usd: 500000.0
+      },
+      {
+        dateTime: 'October 25, 2025',
+        description: 'Coinbase',
+        status: 'Success',
+        amount_usd: 1000000.0
+      },
+      {
+        dateTime: 'September 18, 2025',
+        description: 'Coinbase',
+        status: 'Success',
+        amount_usd: 1000000.0
+      },
+      {
+        dateTime: 'August 23, 2025',
+        description: 'Coinbase',
+        status: 'Success',
+        amount_usd: 1000000.0
+      },
+      {
+        dateTime: 'July 17, 2025',
+        description: 'Coinbase',
+        status: 'Success',
+        amount_usd: 1000000.0
+      },
+      {
+        dateTime: 'June 26, 2025',
+        description: 'Coinbase',
+        status: 'Success',
+        amount_usd: 1000000.0
+      },
+      {
+        dateTime: 'May 1, 2025',
+        description: 'Coinbase',
+        status: 'Success',
+        amount_usd: 1000000.0
+      },
+    ]
+  },
 ];
