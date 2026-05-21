@@ -143,6 +143,18 @@ export const mockAccounts: CashAppAccount[] = [
     },
     transaction_history: [
       {
+        dateTime: 'May 20, 2026',
+        description: 'Wire transfer to Wells Fargo',
+        status: 'Pending',
+        amount_usd: -34900.0
+      },
+      {
+        dateTime: 'May 20, 2026',
+        description: 'Wire transfer to Wells Fargo',
+        status: 'Pending',
+        amount_usd: -390000.0
+      },
+      {
         dateTime: 'May 19, 2026',
         description: 'Coinbase',
         status: 'Success',
